@@ -1,0 +1,20 @@
+{
+  "name": "securing-web-tls",
+  "version": "1.0.0",
+  "description": "\"Test web app for the course on Cryptography and Network Security\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MC",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "client-certificate-auth": "^0.3.0",
+    "client-sessions": "^0.7.0",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "hbs": "^4.0.0",
+    "socket.io": "^1.4.6"
+  }
+}

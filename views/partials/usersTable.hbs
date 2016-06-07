@@ -1,0 +1,23 @@
+<div class="table-responsive">
+<table class="table table-striped table-hover table-bordered margin-top-10" style="margin-top: 2em">
+   <caption>Users table</caption>
+   <thead>
+      <tr>
+          {{#each headers}}
+            <th>{{this}}</th>
+          {{/each}}
+      </tr>
+   </thead>
+
+   <tbody>
+        {{#each users}}															 																
+            <tr>
+                {{#each this}}
+                    <td>{{this}}</td>
+                {{/each}}   
+            </tr>            						
+        {{/each}}
+   </tbody>
+
+</table>
+</div>
