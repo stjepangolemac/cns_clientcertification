@@ -38,7 +38,7 @@ var isAuthenticated = function(req, res, next) {
 			return next();					
 		});		
     // Session does not exist.
-    // If a certificate exists, check users for serial
+    // If a certificate exists, check users for serial and proceed to login
 	} else if(req.connection.getPeerCertificate(true).serialNumber) {
         req.db.find('users', {serial: req.connection.getPeerCertificate(true).serialNumber}, function(user) {
             if ( Object.keys(user).length > 0 ) {
@@ -96,8 +96,16 @@ var generateResponse = function (req, res, next) {
 				return res.render('error');                                        
 			},
 			'login': function() {
-				res.locals = {  message: req.auth.params.message,
-                                usr: req.auth.params.user.username};
+				if(req.auth.params.user) {
+                    res.locals = {
+                        message: req.auth.params.message,
+                        usr: req.auth.params.user.username
+                    };
+                } else {
+                    res.locals = {
+                        message: req.auth.params.message
+                    };
+                }
 				return res.render('login');				
 			},
 			'success': function() {
